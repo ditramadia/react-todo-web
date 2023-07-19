@@ -1,5 +1,5 @@
 import './index.css';
-import List from "./components/List";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -8,17 +8,7 @@ function App() {
         <div className="heading">
           <h1>To-Do List</h1>
         </div>
-        <div className="form">
-          <input type="text" />
-          <button>
-            <span>Add</span>
-          </button>
-        </div>
-        <div>
-          <ul>
-            <List name="test" />
-          </ul>
-        </div>
+        <Form />
       </div>
     </div>
   );
