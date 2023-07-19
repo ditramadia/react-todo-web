@@ -17,6 +17,10 @@ export default function Body() {
         setInput("");
     }
 
+    function handleDelete(id) {
+        setList((prev) => prev.filter((item, idx) => idx !== id));
+    }
+
     return(
         <>
             <div className="form">
@@ -32,7 +36,7 @@ export default function Body() {
             <div>
                 <ul>
                     {
-                        list.map((todo, idx) => <List id={idx} name={todo} />)
+                        list.map((todo, idx) => <List key={idx} id={idx} name={todo} onDelete={handleDelete} />)
                     }
                 </ul>
             </div>
