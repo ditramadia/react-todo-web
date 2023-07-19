@@ -1,20 +1,14 @@
 import React, { useState } from "react";
+import InputArea from "./InputArea";
 import List from "./List";
 
 export default function Body() {
     const [list, setList] = useState(["Makan", "Mandi", "Sikat gigi"]);
-    const [input, setInput] = useState("");
- 
-    function handleChange(e) {
-        const { value } = e.target;
-        setInput(value);
-    }
 
-    function handleSubmit() {
+    function handleSubmit(input) {
         setList((prevList) => {
             return [...prevList, input];
         });
-        setInput("");
     }
 
     function handleDelete(id) {
@@ -23,16 +17,7 @@ export default function Body() {
 
     return(
         <>
-            <div className="form">
-                <input 
-                    type="text"
-                    value={input}
-                    onChange={handleChange}
-                />
-                <button onClick={handleSubmit}>
-                    <span>Add</span>
-                </button>
-            </div>
+            <InputArea onSubmit={handleSubmit}/>
             <div>
                 <ul>
                     {
